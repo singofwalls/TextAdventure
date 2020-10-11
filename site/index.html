@@ -1,16 +1,116 @@
-<canvas id="myCanvas"></canvas>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html, body {
+  height: 95%;
+  margin: 0;
+  overflow: hidden;
+  background-color: #7eb485;
+}
 
-<script>
-    canvas = document.getElementById("myCanvas");
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+.item1 { grid-area: main;}
+.item2 { grid-area: surroundings; }
+.item3 { grid-area: overlay; }
+.item4 { grid-area: health; }
+.item5 { grid-area: hands; }
+.item6 { grid-area: chat; }
 
-    let ctx = canvas.getContext("2d");
+.chatbox {
+  border:rgba(255, 255, 255, 0.8);
+  background-color: #dff2f3;
+  padding: 0px;
+  text-align: left;
+  text-decoration: none;
+  display: flow-root;
+  font-size: 16px;
+  color: #29312a;
+  margin: 0px;
+  height: 50%;
+  width: 100%;
+}
 
-    ctx.moveTo(0, 0);
+.textbox {
+  border:rgba(255, 255, 255, 0.8);
+  background-color: #dff2f3;
+  padding: 0px;
+  text-align: left;
+  text-decoration: none;
+  display: flow-root;
+  font-size: 16px;
+  color: #7eb485;
+  margin: 0px;
+  height: (100% - 10px);
+  width: 100%;
+}
 
-    ctx.lineTo(window.innerWidth, window.innerHeight);
-    ctx.stroke();
+.titlebox {
+  border:rgba(19, 56, 8, 0.8);
+  background-color: #cbe6e7;
+  padding: 0px;
+  text-align: left;
+  text-decoration: none;
+  display: flow-root;
+  font-size: 15px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #0a3810;
+  margin: 0px;
+  height: 20px;
+  width: 100%;
+  text-indent: 10px;
+}
 
-</script>
+.main-container {
+  border: #0a3810;
+  border-width: 5px;
+  border-style:solid;
+  display: grid;
+  grid-template-areas:
+    'main surroundings overlay'
+    'main surroundings health'
+    'chat surroundings hands';
+  grid-template-columns: 60% 25% 15%;
+  grid-template-rows: 22% 70% 8%;
+  grid-gap: 3px;
+  background-color: #7eb485;
+  padding: 0px;
+  height: 90%;
+  width: 90%;
+  position:absolute;
+}
+
+.main-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 2px;
+  font-size: 30px;
+}
+
+.main-over {
+  display:grid;
+  align-content: center;
+  justify-content: center;
+  padding-top: 2%;
+  padding-left: 2%;
+  background-color: #7eb485;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="main-over">
+  <div class="main-container">
+    <div class="item1"><textbox class="titlebox">Main Window</textbox><textbox class="textbox"></textbox></div>
+    <div class="item2"><textbox class="titlebox">Surroundings</textbox><textbox class="textbox"></textbox></div>
+    <div class="item3"><textbox class="titlebox">Overlay</textbox><textbox class="textbox"></textbox></div>  
+    <div class="item4"><textbox class="titlebox">Health</textbox><textbox class="textbox"></textbox></div>
+    <div class="item5"><textbox class="titlebox">Hands</textbox><textbox class="textbox"></textbox></div>
+    <div class="item6"><textbox class="titlebox">Chat</textbox><input class="chatbox"></input></div>
+  </div>
+</div>
+
+</body>
+</html>
